@@ -1,0 +1,80 @@
+import React, {useState, useEffect} from 'react'
+import Cookie from "js-cookie";
+import {Redirect} from "react-router";
+
+
+const Navbar = (props) => {
+
+
+
+    return (
+        <nav className="navbar navbar-expand-lg navbar-light bg-light">
+            <a className="navbar-brand" href="/">Share A Ride</a>
+            <button className="navbar-toggler" type="button" data-toggle="collapse"
+                    data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                <span className="navbar-toggler-icon"></span>
+            </button>
+
+            <div className="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul className="navbar-nav mr-auto">
+                    <li className="nav-item active">
+                        <a className="nav-link" href="/">My Rides <span className="sr-only">(current)</span></a>
+                    </li>
+                    <li className="nav-item active">
+                        <a className="nav-link" href="/findaride">Find A Ride <span className="sr-only">(current)</span></a>
+                    </li>
+                    <li className="nav-item active">
+                        <a className="nav-link" href="/offeraride">Offer A Ride <span className="sr-only">(current)</span></a>
+                    </li>
+
+                    <li className="nav-item dropdown">
+                        <a className="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <img
+                                src="/user.svg"
+                                width="40" height="40" className="rounded-circle"/>
+                        </a>
+                        <div className="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a className="dropdown-item" href="/notifications">Notifications</a>
+                            <a className="dropdown-item" href="/wallet">Wallet</a>
+                            <a className="dropdown-item" href="/car">Car</a>
+                            <a className="dropdown-item" href="/contacts">Contacts</a>
+                            <a className="dropdown-item" href="/mylocations">My Locations</a>
+                            <a className="dropdown-item" href="/account">Account</a>
+                            <div className="dropdown-divider"></div>
+                            <a className="dropdown-item" href="#"
+                               onClick={()=>{
+                                   Cookie.remove('jwt')
+                                   window.location.href = "/signin";
+                               }}
+                            >Log Out</a>
+                        </div>
+
+
+                    </li>
+
+                </ul>
+
+            </div>
+        </nav>
+    );
+
+
+
+};
+
+
+export default Navbar;
+
+
+
+
+
+
+
+
+
+
+
+
